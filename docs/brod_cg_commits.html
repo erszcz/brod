@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Brod v3.15.4">
+    <title>brod_cg_commits — Brod v3.15.4</title>
+    <link rel="stylesheet" href="dist/erlang-8a5f731dbc512bf6261b.css" />
+    <script src="dist/sidebar_items-28acb5e507.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="brod.html" class="sidebar-projectName">
+Brod      </a>
+      <strong class="sidebar-projectVersion">
+        v3.15.4
+      </strong>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        brod_cg_commits <small class="app-vsn">(Brod v3.15.4)</small>
+      </h1>
+
+
+        <section id="moduledoc">
+This is a utility module to help force commit offsets to kafka.        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:group_id/0">group_id()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:group_input/0">group_input()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:member_id/0">member_id()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:offset/0">offset()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:offsets/0">offsets()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:partition/0">partition()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:prop_key/0">prop_key()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:prop_val/0">prop_val()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:retention/0">retention()</a>
+  </div>
+    <div class="summary-synopsis">-1 to use whatever configured in kafka</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:topic/0">topic()</a>
+  </div>
+</div>
+  </div>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#assign_all_to_self/2">assign_all_to_self(Members, TopicPartitions)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#assign_partitions/3">assign_partitions(Pid, Members, TopicPartitionList)</a>
+  </div>
+    <div class="summary-synopsis">This function is called only when <code>partition_assignment_strategy</code> is set for <code>callback_implemented</code> in group config.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#assignments_received/4">assignments_received(Pid, MemberId, GenerationId, TopicAssignments)</a>
+  </div>
+    <div class="summary-synopsis">Called by group coordinator when there is new assignemnt received.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#assignments_revoked/1">assignments_revoked(Pid)</a>
+  </div>
+    <div class="summary-synopsis">Called by group coordinator before re-joinning the consumer group.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#code_change/3">code_change(OldVsn, State, Extra)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:code_change-3"><code class="inline">:gen_server.code_change/3</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_committed_offsets/2">get_committed_offsets(Pid, TopicPartitions)</a>
+  </div>
+    <div class="summary-synopsis">Called by group coordinator when initializing the assignments for subscriber. NOTE: this function is called only when it is DISABLED to commit offsets to kafka. i.e. offset_commit_policy is set to consumer_managed</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_call/3">handle_call(Call, From, State0)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_call-3"><code class="inline">:gen_server.handle_call/3</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_cast/2">handle_cast(Cast, State)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_cast-2"><code class="inline">:gen_server.handle_cast/2</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_info/2">handle_info(Info, State)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_info-2"><code class="inline">:gen_server.handle_info/2</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#init/1">init(_)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:init-1"><code class="inline">:gen_server.init/1</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#log/4">log(State, Level, Fmt, Args)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_reply_sync/1">maybe_reply_sync(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#run/2">run(ClientId, GroupInput)</a>
+  </div>
+    <div class="summary-synopsis">Force commit offsets.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#set_done/1">set_done(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_link/2">start_link(Client, GroupInput)</a>
+  </div>
+    <div class="summary-synopsis">Start (link) a group member. The member will try to join the consumer group and get assignments for the given topic-partitions, then commit given offsets to kafka. In case not all given partitions are assigned to it, it will terminate with an exit exception</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#stop/1">stop(Pid)</a>
+  </div>
+    <div class="summary-synopsis">Stop the process.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#sync/1">sync(Pid)</a>
+  </div>
+    <div class="summary-synopsis">Make a call to the resetter process, the call will be blocked until offsets are committed.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#terminate/2">terminate(Reason, State)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:terminate-2"><code class="inline">:gen_server.terminate/2</code></a>.</p></div>
+</div>
+  </div>
+        </section>
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:group_id/0">
+  <div class="detail-header">
+    <a href="#t:group_id/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">group_id()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.group_id/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:group_input/0">
+  <div class="detail-header">
+    <a href="#t:group_input/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">group_input()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.group_input/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:member_id/0">
+  <div class="detail-header">
+    <a href="#t:member_id/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">member_id()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.member_id/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:offset/0">
+  <div class="detail-header">
+    <a href="#t:offset/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">offset()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.offset/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:offsets/0">
+  <div class="detail-header">
+    <a href="#t:offsets/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">offsets()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.offsets/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:partition/0">
+  <div class="detail-header">
+    <a href="#t:partition/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">partition()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.partition/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:prop_key/0">
+  <div class="detail-header">
+    <a href="#t:prop_key/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">prop_key()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.prop_key/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:prop_val/0">
+  <div class="detail-header">
+    <a href="#t:prop_val/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">prop_val()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.prop_val/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:retention/0">
+  <div class="detail-header">
+    <a href="#t:retention/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">retention()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.retention/0</pre>
+      </div>
+
+-1 to use whatever configured in kafka  </section>
+</section>
+<section class="detail" id="t:topic/0">
+  <div class="detail-header">
+    <a href="#t:topic/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">topic()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_cg_commits.topic/0</pre>
+      </div>
+
+  </section>
+</section>
+          </div>
+        </section>
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="assign_all_to_self/2">
+  <div class="detail-header">
+    <a href="#assign_all_to_self/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">assign_all_to_self(Members, TopicPartitions)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_cg_commits.assign_all_to_self/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="assign_partitions/3">
+  <div class="detail-header">
+    <a href="#assign_partitions/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">assign_partitions(Pid, Members, TopicPartitionList)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_cg_commits.assign_partitions/3</pre>
+      </div>
+
+This function is called only when <code>partition_assignment_strategy</code> is set for <code>callback_implemented</code> in group config.  </section>
+</section>
+<section class="detail" id="assignments_received/4">
+  <div class="detail-header">
+    <a href="#assignments_received/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">assignments_received(Pid, MemberId, GenerationId, TopicAssignments)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_cg_commits.assignments_received/4</pre>
+      </div>
+
+Called by group coordinator when there is new assignemnt received.  </section>
+</section>
+<section class="detail" id="assignments_revoked/1">
+  <div class="detail-header">
+    <a href="#assignments_revoked/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">assignments_revoked(Pid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_cg_commits.assignments_revoked/1</pre>
+      </div>
+
+Called by group coordinator before re-joinning the consumer group.  </section>
+</section>
+<section class="detail" id="code_change/3">
+  <div class="detail-header">
+    <a href="#code_change/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">code_change(OldVsn, State, Extra)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:code_change-3"><code class="inline">:gen_server.code_change/3</code></a>.</p>  </section>
+</section>
+<section class="detail" id="get_committed_offsets/2">
+  <div class="detail-header">
+    <a href="#get_committed_offsets/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_committed_offsets(Pid, TopicPartitions)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_cg_commits.get_committed_offsets/2</pre>
+      </div>
+
+Called by group coordinator when initializing the assignments for subscriber. NOTE: this function is called only when it is DISABLED to commit offsets to kafka. i.e. offset_commit_policy is set to consumer_managed  </section>
+</section>
+<section class="detail" id="handle_call/3">
+  <div class="detail-header">
+    <a href="#handle_call/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_call(Call, From, State0)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_call-3"><code class="inline">:gen_server.handle_call/3</code></a>.</p>  </section>
+</section>
+<section class="detail" id="handle_cast/2">
+  <div class="detail-header">
+    <a href="#handle_cast/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_cast(Cast, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_cast-2"><code class="inline">:gen_server.handle_cast/2</code></a>.</p>  </section>
+</section>
+<section class="detail" id="handle_info/2">
+  <div class="detail-header">
+    <a href="#handle_info/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_info(Info, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_info-2"><code class="inline">:gen_server.handle_info/2</code></a>.</p>  </section>
+</section>
+<section class="detail" id="init/1">
+  <div class="detail-header">
+    <a href="#init/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">init(_)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:init-1"><code class="inline">:gen_server.init/1</code></a>.</p>  </section>
+</section>
+<section class="detail" id="log/4">
+  <div class="detail-header">
+    <a href="#log/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">log(State, Level, Fmt, Args)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="maybe_reply_sync/1">
+  <div class="detail-header">
+    <a href="#maybe_reply_sync/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_reply_sync(State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="run/2">
+  <div class="detail-header">
+    <a href="#run/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">run(ClientId, GroupInput)</h1>
+  </div>
+
+  <section class="docstring">
+
+Force commit offsets.  </section>
+</section>
+<section class="detail" id="set_done/1">
+  <div class="detail-header">
+    <a href="#set_done/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">set_done(State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="start_link/2">
+  <div class="detail-header">
+    <a href="#start_link/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_link(Client, GroupInput)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_cg_commits.start_link/2</pre>
+      </div>
+
+Start (link) a group member. The member will try to join the consumer group and get assignments for the given topic-partitions, then commit given offsets to kafka. In case not all given partitions are assigned to it, it will terminate with an exit exception  </section>
+</section>
+<section class="detail" id="stop/1">
+  <div class="detail-header">
+    <a href="#stop/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">stop(Pid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_cg_commits.stop/1</pre>
+      </div>
+
+Stop the process.  </section>
+</section>
+<section class="detail" id="sync/1">
+  <div class="detail-header">
+    <a href="#sync/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">sync(Pid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_cg_commits.sync/1</pre>
+      </div>
+
+Make a call to the resetter process, the call will be blocked until offsets are committed.  </section>
+</section>
+<section class="detail" id="terminate/2">
+  <div class="detail-header">
+    <a href="#terminate/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">terminate(Reason, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:terminate-2"><code class="inline">:gen_server.terminate/2</code></a>.</p>  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

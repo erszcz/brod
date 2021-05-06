@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Brod v3.15.4">
+    <title>brod_producer — Brod v3.15.4</title>
+    <link rel="stylesheet" href="dist/erlang-8a5f731dbc512bf6261b.css" />
+    <script src="dist/sidebar_items-28acb5e507.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="brod.html" class="sidebar-projectName">
+Brod      </a>
+      <strong class="sidebar-projectVersion">
+        v3.15.4
+      </strong>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        brod_producer <small class="app-vsn">(Brod v3.15.4)</small>
+      </h1>
+
+
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:call_ref/0">call_ref()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:config/0">config()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:conn/0">conn()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:delay_send_ref/0">delay_send_ref()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:milli_sec/0">milli_sec()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:offset/0">offset()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:partition/0">partition()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:state/0">state()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:topic/0">topic()</a>
+  </div>
+</div>
+  </div>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#cancel_delay_send_timer/1">cancel_delay_send_timer(_)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_handle_produce/3">do_handle_produce(BufCb, Batch, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_produce/3">handle_produce(BufCb, Batch, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#is_retriable/1">is_retriable(EC)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#log_error_code/4">log_error_code(Topic, Partition, Offset, ErrorCode)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_demonitor/1">maybe_demonitor(Mref)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_produce/1">maybe_produce(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_reinit_connection/1">maybe_reinit_connection(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#produce/3">produce(Pid, Key, Value)</a>
+  </div>
+    <div class="summary-synopsis">Produce a message to partition asynchronizely. The call is blocked until the request has been buffered in producer worker The function returns a call reference of type <code>call_ref()</code> to the caller so the caller can used it to expect (match) a <code>#brod_produce_reply{result = brod_produce_req_acked}</code> message after the produce request has been acked by kafka.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#produce_cb/4">produce_cb(Pid, Key, Value, AckCb)</a>
+  </div>
+    <div class="summary-synopsis">Async produce, evaluate callback if <code>AckCb</code> is a function otherwise send <code>#brod_produce_reply{result = brod_produce_req_acked}</code> message to caller after the produce request has been acked by kafka.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#produce_no_ack/3">produce_no_ack(Pid, Key, Value)</a>
+  </div>
+    <div class="summary-synopsis">Fire-n-forget, no ack, no back-pressure.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#req_vsn/2">req_vsn(Conn, NotConfigured)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#schedule_retry/1">schedule_retry(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#send/2">send(Connection, KafkaReq)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_delay_send_timer/1">start_delay_send_timer(Timeout)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_link/4">start_link(ClientPid, Topic, Partition, Config)</a>
+  </div>
+    <div class="summary-synopsis"><p>Start (link) a partition producer.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#stop/1">stop(Pid)</a>
+  </div>
+    <div class="summary-synopsis">Stop the process</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#sync_produce_request/2">sync_produce_request(CallRef, Timeout)</a>
+  </div>
+    <div class="summary-synopsis">Block calling process until it receives an acked reply for the <code>CallRef</code>. The caller pid of this function must be the caller of <a href="#produce-3"><code>produce/3</code></a> in which the call reference was created.</div>
+</div>
+  </div>
+        </section>
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:call_ref/0">
+  <div class="detail-header">
+    <a href="#t:call_ref/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">call_ref()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_producer.call_ref/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:config/0">
+  <div class="detail-header">
+    <a href="#t:config/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">config()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_producer.config/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:conn/0">
+  <div class="detail-header">
+    <a href="#t:conn/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">conn()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_producer.conn/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:delay_send_ref/0">
+  <div class="detail-header">
+    <a href="#t:delay_send_ref/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">delay_send_ref()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_producer.delay_send_ref/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:milli_sec/0">
+  <div class="detail-header">
+    <a href="#t:milli_sec/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">milli_sec()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_producer.milli_sec/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:offset/0">
+  <div class="detail-header">
+    <a href="#t:offset/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">offset()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_producer.offset/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:partition/0">
+  <div class="detail-header">
+    <a href="#t:partition/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">partition()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_producer.partition/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:state/0">
+  <div class="detail-header">
+    <a href="#t:state/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">state()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_producer.state/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:topic/0">
+  <div class="detail-header">
+    <a href="#t:topic/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">topic()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_producer.topic/0</pre>
+      </div>
+
+  </section>
+</section>
+          </div>
+        </section>
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="cancel_delay_send_timer/1">
+  <div class="detail-header">
+    <a href="#cancel_delay_send_timer/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">cancel_delay_send_timer(_)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.cancel_delay_send_timer/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="do_handle_produce/3">
+  <div class="detail-header">
+    <a href="#do_handle_produce/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_handle_produce(BufCb, Batch, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="handle_produce/3">
+  <div class="detail-header">
+    <a href="#handle_produce/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_produce(BufCb, Batch, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="is_retriable/1">
+  <div class="detail-header">
+    <a href="#is_retriable/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">is_retriable(EC)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="log_error_code/4">
+  <div class="detail-header">
+    <a href="#log_error_code/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">log_error_code(Topic, Partition, Offset, ErrorCode)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.log_error_code/4</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="maybe_demonitor/1">
+  <div class="detail-header">
+    <a href="#maybe_demonitor/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_demonitor(Mref)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="maybe_produce/1">
+  <div class="detail-header">
+    <a href="#maybe_produce/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_produce(State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="maybe_reinit_connection/1">
+  <div class="detail-header">
+    <a href="#maybe_reinit_connection/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_reinit_connection(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.maybe_reinit_connection/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="produce/3">
+  <div class="detail-header">
+    <a href="#produce/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">produce(Pid, Key, Value)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.produce/3</pre>
+      </div>
+
+Produce a message to partition asynchronizely. The call is blocked until the request has been buffered in producer worker The function returns a call reference of type <code>call_ref()</code> to the caller so the caller can used it to expect (match) a <code>#brod_produce_reply{result = brod_produce_req_acked}</code> message after the produce request has been acked by kafka.  </section>
+</section>
+<section class="detail" id="produce_cb/4">
+  <div class="detail-header">
+    <a href="#produce_cb/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">produce_cb(Pid, Key, Value, AckCb)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.produce_cb/4</pre>
+      </div>
+
+Async produce, evaluate callback if <code>AckCb</code> is a function otherwise send <code>#brod_produce_reply{result = brod_produce_req_acked}</code> message to caller after the produce request has been acked by kafka.  </section>
+</section>
+<section class="detail" id="produce_no_ack/3">
+  <div class="detail-header">
+    <a href="#produce_no_ack/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">produce_no_ack(Pid, Key, Value)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.produce_no_ack/3</pre>
+      </div>
+
+Fire-n-forget, no ack, no back-pressure.  </section>
+</section>
+<section class="detail" id="req_vsn/2">
+  <div class="detail-header">
+    <a href="#req_vsn/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">req_vsn(Conn, NotConfigured)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="schedule_retry/1">
+  <div class="detail-header">
+    <a href="#schedule_retry/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">schedule_retry(State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="send/2">
+  <div class="detail-header">
+    <a href="#send/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">send(Connection, KafkaReq)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.send/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="start_delay_send_timer/1">
+  <div class="detail-header">
+    <a href="#start_delay_send_timer/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_delay_send_timer(Timeout)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.start_delay_send_timer/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="start_link/4">
+  <div class="detail-header">
+    <a href="#start_link/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_link(ClientPid, Topic, Partition, Config)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.start_link/4</pre>
+      </div>
+
+<p>Start (link) a partition producer.</p>Possible configs:<ul><li><p><code>required_acks</code> (optional, default = -1):</p>How many acknowledgements the kafka broker should receive from the clustered replicas before acking producer. 0: the broker will not send any response (this is the only case where the broker will not reply to a request) 1: The leader will wait the data is written to the local log before sending a response. -1: If it is -1 the broker will block until the message is committed by all in sync replicas before acking.</li><li><p><code>ack_timeout</code> (optional, default = 10000 ms):</p>Maximum time in milliseconds the broker can await the receipt of the number of acknowledgements in <code>RequiredAcks</code>. The timeout is not an exact limit on the request time for a few reasons: (1) it does not include network latency, (2) the timer begins at the beginning of the processing of this request so if many requests are queued due to broker overload that wait time will not be included, (3) kafka leader will not terminate a local write so if the local write time exceeds this timeout it will not be respected.</li><li><p><code>partition_buffer_limit</code> (optional, default = 256):</p>How many requests (per-partition) can be buffered without blocking the caller. The callers are released (by receiving the 'brod_produce_req_buffered' reply) once the request is taken into buffer and after the request has been put on wire, then the caller may expect a reply 'brod_produce_req_acked' when the request is accepted by kafka.</li><li><p><code>partition_onwire_limit</code> (optional, default = 1):</p><p>How many message sets (per-partition) can be sent to kafka broker asynchronously before receiving ACKs from broker.</p>NOTE: setting a number greater than 1 may cause messages being persisted in an order different from the order they were produced.</li><li><p><code>max_batch_size</code> (in bytes, optional, default = 1M):</p><p>In case callers are producing faster than brokers can handle (or congestion on wire), try to accumulate small requests into batches as much as possible but not exceeding max_batch_size.</p>OBS: If compression is enabled, care should be taken when picking the max batch size, because a compressed batch will be produced as one message and this message might be larger than 'max.message.bytes' in kafka config (or topic config)</li><li><p><code>max_retries</code> (optional, default = 3):</p>If <code>{max_retries, N}</code> is given, the producer retry produce request for N times before crashing in case of failures like connection being shutdown by remote or exceptions received in produce response from kafka. The special value N = -1 means &quot;retry indefinitely&quot;</li><li><p><code>retry_backoff_ms</code> (optional, default = 500);</p>Time in milli-seconds to sleep before retry the failed produce request.</li><li><p><code>compression</code> (optional, default = no_compression):</p><code>gzip</code> or <code>snappy</code> to enable compression</li><li><p><code>max_linger_ms</code> (optional, default = 0):</p><p>Messages are allowed to 'linger' in buffer for this amount of milli-seconds before being sent. Definition of 'linger': A message is in &quot;linger&quot; state when it is allowed to be sent on-wire, but chosen not to (for better batching).</p>The default value is 0 for 2 reasons:<ol><li>Backward compatibility (for 2.x releases)</li><li>Not to surprise <code>brod:produce_sync</code> callers</li></ol></li><li><p><code>max_linger_count</code> (optional, default = 0):</p><p>At most this amount (count not size) of messages are allowed to &quot;linger&quot; in buffer. Messages will be sent regardless of &quot;linger&quot; age when this threshold is hit.</p>NOTE: It does not make sense to have this value set larger than <code>partition_buffer_limit</code></li><li><p><code>produce_req_vsn</code> (optional, default = undefined):</p>User determined produce API version to use, discard the API version range received from kafka. This is to be used when a topic in newer version kafka is configured to store older version message format. e.g. When a topic in kafka 0.11 is configured to have message format 0.10, sending message with headers would result in <code>unknown_server_error</code> error code.</li></ul>  </section>
+</section>
+<section class="detail" id="stop/1">
+  <div class="detail-header">
+    <a href="#stop/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">stop(Pid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.stop/1</pre>
+      </div>
+
+Stop the process  </section>
+</section>
+<section class="detail" id="sync_produce_request/2">
+  <div class="detail-header">
+    <a href="#sync_produce_request/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">sync_produce_request(CallRef, Timeout)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_producer.sync_produce_request/2</pre>
+      </div>
+
+Block calling process until it receives an acked reply for the <code>CallRef</code>. The caller pid of this function must be the caller of <a href="#produce-3"><code>produce/3</code></a> in which the call reference was created.  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Brod v3.15.4">
+    <title>brod_group_member — Brod v3.15.4</title>
+    <link rel="stylesheet" href="dist/erlang-8a5f731dbc512bf6261b.css" />
+    <script src="dist/sidebar_items-28acb5e507.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="brod.html" class="sidebar-projectName">
+Brod      </a>
+      <strong class="sidebar-projectVersion">
+        v3.15.4
+      </strong>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        brod_group_member <small>behaviour</small> <small class="app-vsn">(Brod v3.15.4)</small>
+      </h1>
+
+
+        <section id="moduledoc">
+<p>Implement <code>brod_group_member</code> behaviour callbacks to allow a process to act as a group member without having to deal with Kafka group protocol details. A typical workflow:</p><p>1. Spawn a group coordinator by calling <a href="brod_group_coordinator#start_link/6" rel="https://erlang.org/doc/link/seemfa"><code>brod_group_coordinator:start_link/6</code></a>.</p><p>2. Subscribe to partitions received in the assignments from <code>assignments_received/4</code> callback.</p><p>3. Receive messages from the assigned partitions (delivered by the partition workers (the pollers) implemented in <code>brod_consumer</code>).</p><p>4. Unsubscribe from all previously subscribed partitions when <code>assignments_revoked/1</code> is called.</p><p>For group members that commit offsets to Kafka, do:</p><p>1. Call <a href="brod_group_coordinator#ack/4" rel="https://erlang.org/doc/link/seemfa"><code>brod_group_coordinator:ack/4</code></a>. to acknowledge sucessful consumption of the messages. Group coordinator will commit the acknowledged offsets at configured interval.</p><p>2. Call <a href="brod_group_coordinator#commit_offsets/2" rel="https://erlang.org/doc/link/seemfa"><code>brod_group_coordinator:commit_offsets/2</code></a> to force an immediate offset commit if necessary.</p><p>For group members that manage offsets locally, do:</p>1. Implement the <code>get_committed_offsets/2</code> callback. This callback is evaluated every time when new assignments are received.        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-callbacks summary">
+    <h2>
+      <a href="#callbacks">Callbacks</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:assign_partitions/3">assign_partitions(pid, list, list)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:assignments_received/4">assignments_received(pid, arg2, arg3, arg4)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:assignments_revoked/1">assignments_revoked(pid)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:get_committed_offsets/2">get_committed_offsets(pid, list)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#c:user_data/1">user_data(pid)</a>
+  </div>
+</div>
+  </div>
+        </section>
+
+        <section id="callbacks" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#callbacks">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Callbacks          </h1>
+          <div class="callbacks-list">
+<section class="detail" id="c:assign_partitions/3">
+  <div class="detail-header">
+    <a href="#c:assign_partitions/3" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <h1 class="signature">assign_partitions(pid, list, list)</h1>
+      <span class="note">(optional)</span>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>c:brod_group_member.assign_partitions/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="c:assignments_received/4">
+  <div class="detail-header">
+    <a href="#c:assignments_received/4" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <h1 class="signature">assignments_received(pid, arg2, arg3, arg4)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>c:brod_group_member.assignments_received/4</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="c:assignments_revoked/1">
+  <div class="detail-header">
+    <a href="#c:assignments_revoked/1" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <h1 class="signature">assignments_revoked(pid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>c:brod_group_member.assignments_revoked/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="c:get_committed_offsets/2">
+  <div class="detail-header">
+    <a href="#c:get_committed_offsets/2" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <h1 class="signature">get_committed_offsets(pid, list)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>c:brod_group_member.get_committed_offsets/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="c:user_data/1">
+  <div class="detail-header">
+    <a href="#c:user_data/1" class="detail-link" title="Link to this callback">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this callback</span>
+    </a>
+    <h1 class="signature">user_data(pid)</h1>
+      <span class="note">(optional)</span>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>c:brod_group_member.user_data/1</pre>
+      </div>
+
+  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

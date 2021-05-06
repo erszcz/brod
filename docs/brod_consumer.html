@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Brod v3.15.4">
+    <title>brod_consumer — Brod v3.15.4</title>
+    <link rel="stylesheet" href="dist/erlang-8a5f731dbc512bf6261b.css" />
+    <script src="dist/sidebar_items-28acb5e507.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="brod.html" class="sidebar-projectName">
+Brod      </a>
+      <strong class="sidebar-projectVersion">
+        v3.15.4
+      </strong>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        brod_consumer <small class="app-vsn">(Brod v3.15.4)</small>
+      </h1>
+
+
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:bytes/0">bytes()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:config/0">config()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:offset/0">offset()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:offset_reset_policy/0">offset_reset_policy()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:offset_time/0">offset_time()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:options/0">options()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:partition/0">partition()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:pending/0">pending()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:pending_acks/0">pending_acks()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:pending_queue/0">pending_queue()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:state/0">state()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:topic/0">topic()</a>
+  </div>
+</div>
+  </div>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#ack/2">ack(Pid, Offset)</a>
+  </div>
+    <div class="summary-synopsis">Subscriber confirms that a message (identified by offset) has been consumed, consumer process now may continue to fetch more messages.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#add_pending_ack/2">add_pending_ack(Kafka_message, Pending_acks)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#add_pending_acks/2">add_pending_acks(PendingAcks, Messages)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#cast_to_subscriber/2">cast_to_subscriber(Pid, Msg)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#connect_leader/3">connect_leader(ClientPid, Topic, Partition)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#debug/2">debug(Pid, File)</a>
+  </div>
+    <div class="summary-synopsis"><p>Enable/disable debugging on the consumer process.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_debug/2">do_debug(Pid, Debug)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#err_op/1">err_op(_)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_connection/1">get_connection(Pid)</a>
+  </div>
+    <div class="summary-synopsis">Get connection pid. Test/debug only.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_ack/2">handle_ack(Pending_acks, Offset)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_batches/3">handle_batches(Header, Batches, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_conn_down/1">handle_conn_down(State0)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_fetch_error/2">handle_fetch_error(Kafka_fetch_error, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_fetch_response/2">handle_fetch_response(Kpro_rsp, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_reset_offset/2">handle_reset_offset(State, Error)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_subscribe_call/3">handle_subscribe_call(Pid, Options, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#init/1">init(_)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:init-1"><code class="inline">:gen_server.init/1</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#is_shared_conn/1">is_shared_conn(Bootstrap)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_delay_fetch_request/1">maybe_delay_fetch_request(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_init_connection/1">maybe_init_connection(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_send_fetch_request/1">maybe_send_fetch_request(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_send_init_connection/1">maybe_send_init_connection(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_shrink_max_bytes/2">maybe_shrink_max_bytes(State, Messages)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#reset_buffer/1">reset_buffer(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#resolve_begin_offset/1">resolve_begin_offset(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#resolve_offset/4">resolve_offset(Connection, Topic, Partition, BeginOffset)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#safe_gen_call/3">safe_gen_call(Server, Call, Timeout)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#send_fetch_request/1">send_fetch_request(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_link/4">start_link(Bootstrap, Topic, Partition, Config)</a>
+  </div>
+    <div class="summary-synopsis"><p>Equivalent to <a href="#start_link/5" rel="https://erlang.org/doc/link/seemfa">start_link(ClientPid, Topic, Partition, Config, [])</a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_link/5">start_link(Bootstrap, Topic, Partition, Config, Debug)</a>
+  </div>
+    <div class="summary-synopsis"><p>Start (link) a partition consumer.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#stop/1">stop(Pid)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#stop_maybe_kill/2">stop_maybe_kill(Pid, Timeout)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#subscribe/3">subscribe(Pid, SubscriberPid, ConsumerOptions)</a>
+  </div>
+    <div class="summary-synopsis"><p>Subscribe or resubscribe on messages from a partition. Caller may specify a set of options extending consumer config. It is possible to update parameters such as <code>max_bytes</code> and <code>max_wait_time</code>, or the starting point (<code>begin_offset</code>) of the data stream.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#unsubscribe/2">unsubscribe(Pid, SubscriberPid)</a>
+  </div>
+    <div class="summary-synopsis">Unsubscribe the current subscriber.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_avg_size/2">update_avg_size(State, Rest)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_options/2">update_options(Options, State)</a>
+  </div>
+</div>
+  </div>
+        </section>
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:bytes/0">
+  <div class="detail-header">
+    <a href="#t:bytes/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">bytes()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.bytes/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:config/0">
+  <div class="detail-header">
+    <a href="#t:config/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">config()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.config/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:offset/0">
+  <div class="detail-header">
+    <a href="#t:offset/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">offset()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.offset/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:offset_reset_policy/0">
+  <div class="detail-header">
+    <a href="#t:offset_reset_policy/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">offset_reset_policy()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.offset_reset_policy/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:offset_time/0">
+  <div class="detail-header">
+    <a href="#t:offset_time/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">offset_time()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.offset_time/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:options/0">
+  <div class="detail-header">
+    <a href="#t:options/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">options()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.options/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:partition/0">
+  <div class="detail-header">
+    <a href="#t:partition/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">partition()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.partition/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:pending/0">
+  <div class="detail-header">
+    <a href="#t:pending/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">pending()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.pending/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:pending_acks/0">
+  <div class="detail-header">
+    <a href="#t:pending_acks/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">pending_acks()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.pending_acks/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:pending_queue/0">
+  <div class="detail-header">
+    <a href="#t:pending_queue/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">pending_queue()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.pending_queue/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:state/0">
+  <div class="detail-header">
+    <a href="#t:state/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">state()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.state/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:topic/0">
+  <div class="detail-header">
+    <a href="#t:topic/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">topic()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_consumer.topic/0</pre>
+      </div>
+
+  </section>
+</section>
+          </div>
+        </section>
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="ack/2">
+  <div class="detail-header">
+    <a href="#ack/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">ack(Pid, Offset)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.ack/2</pre>
+      </div>
+
+Subscriber confirms that a message (identified by offset) has been consumed, consumer process now may continue to fetch more messages.  </section>
+</section>
+<section class="detail" id="add_pending_ack/2">
+  <div class="detail-header">
+    <a href="#add_pending_ack/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">add_pending_ack(Kafka_message, Pending_acks)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="add_pending_acks/2">
+  <div class="detail-header">
+    <a href="#add_pending_acks/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">add_pending_acks(PendingAcks, Messages)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="cast_to_subscriber/2">
+  <div class="detail-header">
+    <a href="#cast_to_subscriber/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">cast_to_subscriber(Pid, Msg)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="connect_leader/3">
+  <div class="detail-header">
+    <a href="#connect_leader/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">connect_leader(ClientPid, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="debug/2">
+  <div class="detail-header">
+    <a href="#debug/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">debug(Pid, File)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.debug/2</pre>
+      </div>
+
+<p>Enable/disable debugging on the consumer process.</p><p><code>debug(Pid, print)</code> prints debug info to stdout.</p><code>debug(Pid, File)</code> prints debug info to a file <a href="https://hexdocs.pm/elixir/File.html"><code>File</code></a>.  </section>
+</section>
+<section class="detail" id="do_debug/2">
+  <div class="detail-header">
+    <a href="#do_debug/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_debug(Pid, Debug)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="err_op/1">
+  <div class="detail-header">
+    <a href="#err_op/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">err_op(_)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="get_connection/1">
+  <div class="detail-header">
+    <a href="#get_connection/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_connection(Pid)</h1>
+  </div>
+
+  <section class="docstring">
+
+Get connection pid. Test/debug only.  </section>
+</section>
+<section class="detail" id="handle_ack/2">
+  <div class="detail-header">
+    <a href="#handle_ack/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_ack(Pending_acks, Offset)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="handle_batches/3">
+  <div class="detail-header">
+    <a href="#handle_batches/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_batches(Header, Batches, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="handle_conn_down/1">
+  <div class="detail-header">
+    <a href="#handle_conn_down/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_conn_down(State0)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="handle_fetch_error/2">
+  <div class="detail-header">
+    <a href="#handle_fetch_error/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_fetch_error(Kafka_fetch_error, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="handle_fetch_response/2">
+  <div class="detail-header">
+    <a href="#handle_fetch_response/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_fetch_response(Kpro_rsp, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="handle_reset_offset/2">
+  <div class="detail-header">
+    <a href="#handle_reset_offset/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_reset_offset(State, Error)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="handle_subscribe_call/3">
+  <div class="detail-header">
+    <a href="#handle_subscribe_call/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_subscribe_call(Pid, Options, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="init/1">
+  <div class="detail-header">
+    <a href="#init/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">init(_)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:init-1"><code class="inline">:gen_server.init/1</code></a>.</p>  </section>
+</section>
+<section class="detail" id="is_shared_conn/1">
+  <div class="detail-header">
+    <a href="#is_shared_conn/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">is_shared_conn(Bootstrap)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="maybe_delay_fetch_request/1">
+  <div class="detail-header">
+    <a href="#maybe_delay_fetch_request/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_delay_fetch_request(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.maybe_delay_fetch_request/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="maybe_init_connection/1">
+  <div class="detail-header">
+    <a href="#maybe_init_connection/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_init_connection(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.maybe_init_connection/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="maybe_send_fetch_request/1">
+  <div class="detail-header">
+    <a href="#maybe_send_fetch_request/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_send_fetch_request(State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="maybe_send_init_connection/1">
+  <div class="detail-header">
+    <a href="#maybe_send_init_connection/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_send_init_connection(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.maybe_send_init_connection/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="maybe_shrink_max_bytes/2">
+  <div class="detail-header">
+    <a href="#maybe_shrink_max_bytes/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_shrink_max_bytes(State, Messages)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="reset_buffer/1">
+  <div class="detail-header">
+    <a href="#reset_buffer/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">reset_buffer(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.reset_buffer/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="resolve_begin_offset/1">
+  <div class="detail-header">
+    <a href="#resolve_begin_offset/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">resolve_begin_offset(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.resolve_begin_offset/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="resolve_offset/4">
+  <div class="detail-header">
+    <a href="#resolve_offset/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">resolve_offset(Connection, Topic, Partition, BeginOffset)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.resolve_offset/4</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="safe_gen_call/3">
+  <div class="detail-header">
+    <a href="#safe_gen_call/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">safe_gen_call(Server, Call, Timeout)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.safe_gen_call/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="send_fetch_request/1">
+  <div class="detail-header">
+    <a href="#send_fetch_request/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">send_fetch_request(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.send_fetch_request/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="start_link/4">
+  <div class="detail-header">
+    <a href="#start_link/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_link(Bootstrap, Topic, Partition, Config)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.start_link/4</pre>
+      </div>
+
+<p>Equivalent to <a href="#start_link/5" rel="https://erlang.org/doc/link/seemfa">start_link(ClientPid, Topic, Partition, Config, [])</a>.</p>  </section>
+</section>
+<section class="detail" id="start_link/5">
+  <div class="detail-header">
+    <a href="#start_link/5" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_link(Bootstrap, Topic, Partition, Config, Debug)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.start_link/5</pre>
+      </div>
+
+<p>Start (link) a partition consumer.</p>Possible configs:<ul><li><p><code>min_bytes</code> (optional, default = 0)</p>Minimal bytes to fetch in a batch of messages</li><li><p><code>max_bytes</code> (optional, default = 1MB)</p><p>Maximum bytes to fetch in a batch of messages.</p>NOTE: this value might be expanded to retry when it is not enough to fetch even a single message, then slowly shrinked back to the given value.</li><li><p><code>max_wait_time</code> (optional, default = 10000 ms)</p>Max number of seconds allowd for the broker to collect <code>min_bytes</code> of messages in fetch response</li><li><p><code>sleep_timeout</code> (optional, default = 1000 ms)</p>Allow consumer process to sleep this amout of ms if kafka replied 'empty' message set.</li><li><p><code>prefetch_count</code> (optional, default = 10)</p>The window size (number of messages) allowed to fetch-ahead.</li><li><p><code>prefetch_bytes</code> (optional, default = 100KB)</p>The total number of bytes allowed to fetch-ahead. brod_consumer is greed, it only stops fetching more messages in when number of unacked messages has exceeded prefetch_count AND the unacked total volume has exceeded prefetch_bytes</li><li><p><code>begin_offset</code> (optional, default = latest)</p>The offset from which to begin fetch requests.</li><li><p><code>offset_reset_policy</code> (optional, default = reset_by_subscriber)</p><p>How to reset <code>begin_offset</code> if <code>OffsetOutOfRange</code> exception is received.</p><p><code>reset_by_subscriber</code>: consumer is suspended (<code>is_suspended=true</code> in state) and wait for subscriber to re-subscribe with a new <code>begin_offset</code> option.</p><p><code>reset_to_earliest</code>: consume from the earliest offset.</p><code>reset_to_latest</code>: consume from the last available offset.</li><li><p><code>size_stat_window</code>: (optional, default = 5)</p>The moving-average window size to caculate average message size. Average message size is used to shrink <code>max_bytes</code> in fetch requests after it has been expanded to fetch a large message. Use 0 to immediately shrink back to original <code>max_bytes</code> from config. A size estimation allows users to set a relatively small <code>max_bytes</code>, then let it dynamically adjust to a number around <code>PrefetchCount * AverageSize</code></li></ul>  </section>
+</section>
+<section class="detail" id="stop/1">
+  <div class="detail-header">
+    <a href="#stop/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">stop(Pid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.stop/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="stop_maybe_kill/2">
+  <div class="detail-header">
+    <a href="#stop_maybe_kill/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">stop_maybe_kill(Pid, Timeout)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.stop_maybe_kill/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="subscribe/3">
+  <div class="detail-header">
+    <a href="#subscribe/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">subscribe(Pid, SubscriberPid, ConsumerOptions)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.subscribe/3</pre>
+      </div>
+
+<p>Subscribe or resubscribe on messages from a partition. Caller may specify a set of options extending consumer config. It is possible to update parameters such as <code>max_bytes</code> and <code>max_wait_time</code>, or the starting point (<code>begin_offset</code>) of the data stream.</p><p>Possible options:</p><p>All consumer configs as documented for <a href="#start_link/5" rel="https://erlang.org/doc/link/seemfa"><code>start_link/5</code></a></p><p><code>begin_offset</code> (optional, default = latest)</p>A subscriber may consume and process messages, then persist the associated offset to a persistent storage, then start (or restart) from <code>last_processed_offset + 1</code> as the <code>begin_offset</code> to proceed. By default, it starts fetching from the latest available offset.  </section>
+</section>
+<section class="detail" id="unsubscribe/2">
+  <div class="detail-header">
+    <a href="#unsubscribe/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">unsubscribe(Pid, SubscriberPid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.unsubscribe/2</pre>
+      </div>
+
+Unsubscribe the current subscriber.  </section>
+</section>
+<section class="detail" id="update_avg_size/2">
+  <div class="detail-header">
+    <a href="#update_avg_size/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_avg_size(State, Rest)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="update_options/2">
+  <div class="detail-header">
+    <a href="#update_options/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_options(Options, State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_consumer.update_options/2</pre>
+      </div>
+
+  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

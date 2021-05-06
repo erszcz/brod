@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Brod v3.15.4">
+    <title>brod_kafka_request — Brod v3.15.4</title>
+    <link rel="stylesheet" href="dist/erlang-8a5f731dbc512bf6261b.css" />
+    <script src="dist/sidebar_items-28acb5e507.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="brod.html" class="sidebar-projectName">
+Brod      </a>
+      <strong class="sidebar-projectVersion">
+        v3.15.4
+      </strong>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        brod_kafka_request <small class="app-vsn">(Brod v3.15.4)</small>
+      </h1>
+
+
+        <section id="moduledoc">
+Helper functions for building request messages.        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:api/0">api()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:conn/0">conn()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:offset/0">offset()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:partition/0">partition()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:topic/0">topic()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:topic_config/0">topic_config()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:vsn/0">vsn()</a>
+  </div>
+</div>
+  </div>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#create_topics/3">create_topics(Connection, TopicConfigs, RequestConfigs)</a>
+  </div>
+    <div class="summary-synopsis">Make a create_topics request.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#delete_topics/3">delete_topics(Connection, Topics, Timeout)</a>
+  </div>
+    <div class="summary-synopsis">Make a delete_topics request.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#ensure_integer_offset_time/1">ensure_integer_offset_time(T)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#fetch/7">fetch(Pid, Topic, Partition, Offset, WaitTime, MinBytes, MaxBytes)</a>
+  </div>
+    <div class="summary-synopsis">Make a fetch request, If the first arg is a connection pid, call <code>brod_kafka_apis:pick_version/2</code> to resolve version.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#join_group/2">join_group(Conn, Fields)</a>
+  </div>
+    <div class="summary-synopsis">Make a <code>join_group</code> request.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#list_groups/1">list_groups(Connection)</a>
+  </div>
+    <div class="summary-synopsis">Make a <code>list_groups</code> request.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#list_offsets/4">list_offsets(Connection, Topic, Partition, TimeOrSemanticOffset)</a>
+  </div>
+    <div class="summary-synopsis">Make a <code>list_offsets</code> request message for offset resolution. In kafka protocol, -2 and -1 are semantic 'time' to request for 'earliest' and 'latest' offsets. In brod implementation, -2, -1, 'earliest' and 'latest' are semantic 'offset', this is why often a variable named Offset is used as the Time argument.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#make_req/3">make_req(API, Conn, Fields)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#metadata/2">metadata(Connection, Topics)</a>
+  </div>
+    <div class="summary-synopsis">Make a metadata request.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#offset_commit/2">offset_commit(Conn, Fields)</a>
+  </div>
+    <div class="summary-synopsis">Make a <code>offset_commit</code> request.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#offset_fetch/3">offset_fetch(Connection, GroupId, Topics)</a>
+  </div>
+    <div class="summary-synopsis">Make a offset fetch request. NOTE: empty topics list only works for kafka 0.10.2.0 or later</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#pick_version/2">pick_version(API, Vsn)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#produce/7">produce(MaybePid, Topic, Partition, BatchInput, RequiredAcks, AckTimeout, Compression)</a>
+  </div>
+    <div class="summary-synopsis">Make a produce request, If the first arg is a connection pid, call <code>brod_kafka_apis:pick_version/2</code> to resolve version.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#sync_group/2">sync_group(Conn, Fields)</a>
+  </div>
+    <div class="summary-synopsis">Make a <code>sync_group</code> request.</div>
+</div>
+  </div>
+        </section>
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:api/0">
+  <div class="detail-header">
+    <a href="#t:api/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">api()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_kafka_request.api/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:conn/0">
+  <div class="detail-header">
+    <a href="#t:conn/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">conn()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_kafka_request.conn/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:offset/0">
+  <div class="detail-header">
+    <a href="#t:offset/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">offset()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_kafka_request.offset/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:partition/0">
+  <div class="detail-header">
+    <a href="#t:partition/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">partition()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_kafka_request.partition/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:topic/0">
+  <div class="detail-header">
+    <a href="#t:topic/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">topic()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_kafka_request.topic/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:topic_config/0">
+  <div class="detail-header">
+    <a href="#t:topic_config/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">topic_config()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_kafka_request.topic_config/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:vsn/0">
+  <div class="detail-header">
+    <a href="#t:vsn/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">vsn()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_kafka_request.vsn/0</pre>
+      </div>
+
+  </section>
+</section>
+          </div>
+        </section>
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="create_topics/3">
+  <div class="detail-header">
+    <a href="#create_topics/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">create_topics(Connection, TopicConfigs, RequestConfigs)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.create_topics/3</pre>
+      </div>
+
+Make a create_topics request.  </section>
+</section>
+<section class="detail" id="delete_topics/3">
+  <div class="detail-header">
+    <a href="#delete_topics/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">delete_topics(Connection, Topics, Timeout)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.delete_topics/3</pre>
+      </div>
+
+Make a delete_topics request.  </section>
+</section>
+<section class="detail" id="ensure_integer_offset_time/1">
+  <div class="detail-header">
+    <a href="#ensure_integer_offset_time/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">ensure_integer_offset_time(T)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.ensure_integer_offset_time/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="fetch/7">
+  <div class="detail-header">
+    <a href="#fetch/7" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">fetch(Pid, Topic, Partition, Offset, WaitTime, MinBytes, MaxBytes)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.fetch/7</pre>
+      </div>
+
+Make a fetch request, If the first arg is a connection pid, call <code>brod_kafka_apis:pick_version/2</code> to resolve version.  </section>
+</section>
+<section class="detail" id="join_group/2">
+  <div class="detail-header">
+    <a href="#join_group/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">join_group(Conn, Fields)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.join_group/2</pre>
+      </div>
+
+Make a <code>join_group</code> request.  </section>
+</section>
+<section class="detail" id="list_groups/1">
+  <div class="detail-header">
+    <a href="#list_groups/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">list_groups(Connection)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.list_groups/1</pre>
+      </div>
+
+Make a <code>list_groups</code> request.  </section>
+</section>
+<section class="detail" id="list_offsets/4">
+  <div class="detail-header">
+    <a href="#list_offsets/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">list_offsets(Connection, Topic, Partition, TimeOrSemanticOffset)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.list_offsets/4</pre>
+      </div>
+
+Make a <code>list_offsets</code> request message for offset resolution. In kafka protocol, -2 and -1 are semantic 'time' to request for 'earliest' and 'latest' offsets. In brod implementation, -2, -1, 'earliest' and 'latest' are semantic 'offset', this is why often a variable named Offset is used as the Time argument.  </section>
+</section>
+<section class="detail" id="make_req/3">
+  <div class="detail-header">
+    <a href="#make_req/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">make_req(API, Conn, Fields)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="metadata/2">
+  <div class="detail-header">
+    <a href="#metadata/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">metadata(Connection, Topics)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.metadata/2</pre>
+      </div>
+
+Make a metadata request.  </section>
+</section>
+<section class="detail" id="offset_commit/2">
+  <div class="detail-header">
+    <a href="#offset_commit/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">offset_commit(Conn, Fields)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.offset_commit/2</pre>
+      </div>
+
+Make a <code>offset_commit</code> request.  </section>
+</section>
+<section class="detail" id="offset_fetch/3">
+  <div class="detail-header">
+    <a href="#offset_fetch/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">offset_fetch(Connection, GroupId, Topics)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.offset_fetch/3</pre>
+      </div>
+
+Make a offset fetch request. NOTE: empty topics list only works for kafka 0.10.2.0 or later  </section>
+</section>
+<section class="detail" id="pick_version/2">
+  <div class="detail-header">
+    <a href="#pick_version/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">pick_version(API, Vsn)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.pick_version/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="produce/7">
+  <div class="detail-header">
+    <a href="#produce/7" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">produce(MaybePid, Topic, Partition, BatchInput, RequiredAcks, AckTimeout, Compression)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.produce/7</pre>
+      </div>
+
+Make a produce request, If the first arg is a connection pid, call <code>brod_kafka_apis:pick_version/2</code> to resolve version.  </section>
+</section>
+<section class="detail" id="sync_group/2">
+  <div class="detail-header">
+    <a href="#sync_group/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">sync_group(Conn, Fields)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_kafka_request.sync_group/2</pre>
+      </div>
+
+Make a <code>sync_group</code> request.  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Brod v3.15.4">
+    <title>brod_group_coordinator — Brod v3.15.4</title>
+    <link rel="stylesheet" href="dist/erlang-8a5f731dbc512bf6261b.css" />
+    <script src="dist/sidebar_items-28acb5e507.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="brod.html" class="sidebar-projectName">
+Brod      </a>
+      <strong class="sidebar-projectVersion">
+        v3.15.4
+      </strong>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        brod_group_coordinator <small class="app-vsn">(Brod v3.15.4)</small>
+      </h1>
+
+
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:brod_offset_commit_policy/0">brod_offset_commit_policy()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:brod_partition_assignment_strategy/0">brod_partition_assignment_strategy()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:config/0">config()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:member/0">member()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:member_id/0">member_id()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:offset_commit_policy/0">offset_commit_policy()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:partition_assignment_strategy/0">partition_assignment_strategy()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:protocol_name/0">protocol_name()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:state/0">state()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:ts/0">ts()</a>
+  </div>
+</div>
+  </div>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#ack/5">ack(Pid, GenerationId, Topic, Partition, Offset)</a>
+  </div>
+    <div class="summary-synopsis">For group member to call to acknowledge a consumed message offset.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#all_topics/1">all_topics(Members)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#assert_commit_response/1">assert_commit_response(Topics)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#assign_partitions/1">assign_partitions(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#bin/1">bin(X)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#code_change/3">code_change(OldVsn, State, Extra)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:code_change-3"><code class="inline">:gen_server.code_change/3</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#collect_commit_response_error_codes/1">collect_commit_response_error_codes(Topics)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#commit_offsets/1">commit_offsets(CoordinatorPid)</a>
+  </div>
+    <div class="summary-synopsis">Force commit collected (acked) offsets immediately.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#commit_offsets/2">commit_offsets(CoordinatorPid, Offsets0)</a>
+  </div>
+    <div class="summary-synopsis"><p>Force commit collected (acked) offsets plus the given extra offsets immediately.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#coordinator_id/0">coordinator_id()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#discover_coordinator/1">discover_coordinator(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_assign_partitions/3">do_assign_partitions(_, Members, AllPartitions)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_commit_offsets/1">do_commit_offsets(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_commit_offsets_/1">do_commit_offsets_(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_stabilize/3">do_stabilize(Rest, RetryFun, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#ensure_leader_at_hd/2">ensure_leader_at_hd(LeaderId, Members)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#format_assignments/1">format_assignments(Assignments)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#format_partition_assignments/1">format_partition_assignments(Rest)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_committed_offsets/2">get_committed_offsets(State, TopicPartitions)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_partitions/2">get_partitions(Client, Topic)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_topic_assignments/2">get_topic_assignments(State, Assignment)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_ack/5">handle_ack(State, GenerationId, Topic, Partition, Offset)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_call/3">handle_call(Call, From, State)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_call-3"><code class="inline">:gen_server.handle_call/3</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_cast/2">handle_cast(Cast, State)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_cast-2"><code class="inline">:gen_server.handle_cast/2</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_info/2">handle_info(Info, State)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_info-2"><code class="inline">:gen_server.handle_info/2</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#init/1">init(_)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:init-1"><code class="inline">:gen_server.init/1</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#is_already_connected/2">is_already_connected(State, _)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#is_default_offset_retention/1">is_default_offset_retention(_)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#is_roundrobin_v1_commit/1">is_roundrobin_v1_commit(Metadata)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#join_group/1">join_group(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#log/4">log(State, Level, Fmt, Args)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#make_group_connection_client_id/0">make_group_connection_client_id()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#make_offset_commit_metadata/0">make_offset_commit_metadata()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_reset_member_id/2">maybe_reset_member_id(State, Reason)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_send_heartbeat/1">maybe_send_heartbeat(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_upgrade_from_roundrobin_v1/2">maybe_upgrade_from_roundrobin_v1(Offset, Metadata)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#merge_acked_offsets/2">merge_acked_offsets(Offsets, Offsets)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#receive_pending_acks/1">receive_pending_acks(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#resolve_begin_offsets/3">resolve_begin_offsets(Rest, CommittedOffsets, IsConsumerManaged)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#roundrobin_assign_loop/3">roundrobin_assign_loop(Partitions, PendingMembers, AssignedMembers)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#send_sync/2">send_sync(Connection, Request)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#send_sync/3">send_sync(Connection, Request, Timeout)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#should_reset_member_id/1">should_reset_member_id(_)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#stabilize/3">stabilize(State, AttemptNo, Reason)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_heartbeat_timer/1">start_heartbeat_timer(HbRateSec)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_link/6">start_link(Client, GroupId, Topics, Config, CbModule, MemberPid)</a>
+  </div>
+    <div class="summary-synopsis"><p>Start a kafka consumer group coordinator.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_offset_commit_timer/1">start_offset_commit_timer(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#stop/1">stop(Pid)</a>
+  </div>
+    <div class="summary-synopsis">Stop group coordinator, wait for pid <code>DOWN</code> before return.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#sync_group/1">sync_group(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#terminate/2">terminate(Reason, State)</a>
+  </div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:terminate-2"><code class="inline">:gen_server.terminate/2</code></a>.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#translate_members/1">translate_members(Members)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#try_commit_offsets/1">try_commit_offsets(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_topics/2">update_topics(CoordinatorPid, Topics)</a>
+  </div>
+    <div class="summary-synopsis">Update the list of topics the brod_group_coordinator follow which triggers a join group rebalance</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#user_data/2">user_data(Module, Pid)</a>
+  </div>
+</div>
+  </div>
+        </section>
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:brod_offset_commit_policy/0">
+  <div class="detail-header">
+    <a href="#t:brod_offset_commit_policy/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">brod_offset_commit_policy()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.brod_offset_commit_policy/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:brod_partition_assignment_strategy/0">
+  <div class="detail-header">
+    <a href="#t:brod_partition_assignment_strategy/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">brod_partition_assignment_strategy()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.brod_partition_assignment_strategy/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:config/0">
+  <div class="detail-header">
+    <a href="#t:config/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">config()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.config/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:member/0">
+  <div class="detail-header">
+    <a href="#t:member/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">member()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.member/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:member_id/0">
+  <div class="detail-header">
+    <a href="#t:member_id/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">member_id()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.member_id/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:offset_commit_policy/0">
+  <div class="detail-header">
+    <a href="#t:offset_commit_policy/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">offset_commit_policy()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.offset_commit_policy/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:partition_assignment_strategy/0">
+  <div class="detail-header">
+    <a href="#t:partition_assignment_strategy/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">partition_assignment_strategy()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.partition_assignment_strategy/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:protocol_name/0">
+  <div class="detail-header">
+    <a href="#t:protocol_name/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">protocol_name()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.protocol_name/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:state/0">
+  <div class="detail-header">
+    <a href="#t:state/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">state()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.state/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:ts/0">
+  <div class="detail-header">
+    <a href="#t:ts/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">ts()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_group_coordinator.ts/0</pre>
+      </div>
+
+  </section>
+</section>
+          </div>
+        </section>
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="ack/5">
+  <div class="detail-header">
+    <a href="#ack/5" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">ack(Pid, GenerationId, Topic, Partition, Offset)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.ack/5</pre>
+      </div>
+
+For group member to call to acknowledge a consumed message offset.  </section>
+</section>
+<section class="detail" id="all_topics/1">
+  <div class="detail-header">
+    <a href="#all_topics/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">all_topics(Members)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.all_topics/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="assert_commit_response/1">
+  <div class="detail-header">
+    <a href="#assert_commit_response/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">assert_commit_response(Topics)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.assert_commit_response/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="assign_partitions/1">
+  <div class="detail-header">
+    <a href="#assign_partitions/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">assign_partitions(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.assign_partitions/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="bin/1">
+  <div class="detail-header">
+    <a href="#bin/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">bin(X)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.bin/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="code_change/3">
+  <div class="detail-header">
+    <a href="#code_change/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">code_change(OldVsn, State, Extra)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:code_change-3"><code class="inline">:gen_server.code_change/3</code></a>.</p>  </section>
+</section>
+<section class="detail" id="collect_commit_response_error_codes/1">
+  <div class="detail-header">
+    <a href="#collect_commit_response_error_codes/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">collect_commit_response_error_codes(Topics)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.collect_commit_response_error_codes/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="commit_offsets/1">
+  <div class="detail-header">
+    <a href="#commit_offsets/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">commit_offsets(CoordinatorPid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.commit_offsets/1</pre>
+      </div>
+
+Force commit collected (acked) offsets immediately.  </section>
+</section>
+<section class="detail" id="commit_offsets/2">
+  <div class="detail-header">
+    <a href="#commit_offsets/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">commit_offsets(CoordinatorPid, Offsets0)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.commit_offsets/2</pre>
+      </div>
+
+<p>Force commit collected (acked) offsets plus the given extra offsets immediately.</p>NOTE: <code>lists:usort/1</code> is applied on the given extra offsets to commit, meaning if two or more offsets for the same topic-partition exist in the list, only the one closest the head of the list is kept  </section>
+</section>
+<section class="detail" id="coordinator_id/0">
+  <div class="detail-header">
+    <a href="#coordinator_id/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">coordinator_id()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.coordinator_id/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="discover_coordinator/1">
+  <div class="detail-header">
+    <a href="#discover_coordinator/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">discover_coordinator(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.discover_coordinator/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="do_assign_partitions/3">
+  <div class="detail-header">
+    <a href="#do_assign_partitions/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_assign_partitions(_, Members, AllPartitions)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.do_assign_partitions/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="do_commit_offsets/1">
+  <div class="detail-header">
+    <a href="#do_commit_offsets/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_commit_offsets(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.do_commit_offsets/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="do_commit_offsets_/1">
+  <div class="detail-header">
+    <a href="#do_commit_offsets_/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_commit_offsets_(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.do_commit_offsets_/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="do_stabilize/3">
+  <div class="detail-header">
+    <a href="#do_stabilize/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_stabilize(Rest, RetryFun, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="ensure_leader_at_hd/2">
+  <div class="detail-header">
+    <a href="#ensure_leader_at_hd/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">ensure_leader_at_hd(LeaderId, Members)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="format_assignments/1">
+  <div class="detail-header">
+    <a href="#format_assignments/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">format_assignments(Assignments)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.format_assignments/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="format_partition_assignments/1">
+  <div class="detail-header">
+    <a href="#format_partition_assignments/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">format_partition_assignments(Rest)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.format_partition_assignments/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="get_committed_offsets/2">
+  <div class="detail-header">
+    <a href="#get_committed_offsets/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_committed_offsets(State, TopicPartitions)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.get_committed_offsets/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="get_partitions/2">
+  <div class="detail-header">
+    <a href="#get_partitions/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_partitions(Client, Topic)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.get_partitions/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="get_topic_assignments/2">
+  <div class="detail-header">
+    <a href="#get_topic_assignments/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_topic_assignments(State, Assignment)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.get_topic_assignments/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="handle_ack/5">
+  <div class="detail-header">
+    <a href="#handle_ack/5" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_ack(State, GenerationId, Topic, Partition, Offset)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.handle_ack/5</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="handle_call/3">
+  <div class="detail-header">
+    <a href="#handle_call/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_call(Call, From, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_call-3"><code class="inline">:gen_server.handle_call/3</code></a>.</p>  </section>
+</section>
+<section class="detail" id="handle_cast/2">
+  <div class="detail-header">
+    <a href="#handle_cast/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_cast(Cast, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_cast-2"><code class="inline">:gen_server.handle_cast/2</code></a>.</p>  </section>
+</section>
+<section class="detail" id="handle_info/2">
+  <div class="detail-header">
+    <a href="#handle_info/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_info(Info, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:handle_info-2"><code class="inline">:gen_server.handle_info/2</code></a>.</p>  </section>
+</section>
+<section class="detail" id="init/1">
+  <div class="detail-header">
+    <a href="#init/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">init(_)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:init-1"><code class="inline">:gen_server.init/1</code></a>.</p>  </section>
+</section>
+<section class="detail" id="is_already_connected/2">
+  <div class="detail-header">
+    <a href="#is_already_connected/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">is_already_connected(State, _)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="is_default_offset_retention/1">
+  <div class="detail-header">
+    <a href="#is_default_offset_retention/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">is_default_offset_retention(_)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="is_roundrobin_v1_commit/1">
+  <div class="detail-header">
+    <a href="#is_roundrobin_v1_commit/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">is_roundrobin_v1_commit(Metadata)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.is_roundrobin_v1_commit/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="join_group/1">
+  <div class="detail-header">
+    <a href="#join_group/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">join_group(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.join_group/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="log/4">
+  <div class="detail-header">
+    <a href="#log/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">log(State, Level, Fmt, Args)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="make_group_connection_client_id/0">
+  <div class="detail-header">
+    <a href="#make_group_connection_client_id/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">make_group_connection_client_id()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.make_group_connection_client_id/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="make_offset_commit_metadata/0">
+  <div class="detail-header">
+    <a href="#make_offset_commit_metadata/0" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">make_offset_commit_metadata()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.make_offset_commit_metadata/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="maybe_reset_member_id/2">
+  <div class="detail-header">
+    <a href="#maybe_reset_member_id/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_reset_member_id(State, Reason)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="maybe_send_heartbeat/1">
+  <div class="detail-header">
+    <a href="#maybe_send_heartbeat/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_send_heartbeat(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.maybe_send_heartbeat/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="maybe_upgrade_from_roundrobin_v1/2">
+  <div class="detail-header">
+    <a href="#maybe_upgrade_from_roundrobin_v1/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_upgrade_from_roundrobin_v1(Offset, Metadata)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.maybe_upgrade_from_roundrobin_v1/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="merge_acked_offsets/2">
+  <div class="detail-header">
+    <a href="#merge_acked_offsets/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">merge_acked_offsets(Offsets, Offsets)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.merge_acked_offsets/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="receive_pending_acks/1">
+  <div class="detail-header">
+    <a href="#receive_pending_acks/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">receive_pending_acks(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.receive_pending_acks/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="resolve_begin_offsets/3">
+  <div class="detail-header">
+    <a href="#resolve_begin_offsets/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">resolve_begin_offsets(Rest, CommittedOffsets, IsConsumerManaged)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.resolve_begin_offsets/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="roundrobin_assign_loop/3">
+  <div class="detail-header">
+    <a href="#roundrobin_assign_loop/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">roundrobin_assign_loop(Partitions, PendingMembers, AssignedMembers)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="send_sync/2">
+  <div class="detail-header">
+    <a href="#send_sync/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">send_sync(Connection, Request)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="send_sync/3">
+  <div class="detail-header">
+    <a href="#send_sync/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">send_sync(Connection, Request, Timeout)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="should_reset_member_id/1">
+  <div class="detail-header">
+    <a href="#should_reset_member_id/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">should_reset_member_id(_)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="stabilize/3">
+  <div class="detail-header">
+    <a href="#stabilize/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">stabilize(State, AttemptNo, Reason)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.stabilize/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="start_heartbeat_timer/1">
+  <div class="detail-header">
+    <a href="#start_heartbeat_timer/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_heartbeat_timer(HbRateSec)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.start_heartbeat_timer/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="start_link/6">
+  <div class="detail-header">
+    <a href="#start_link/6" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_link(Client, GroupId, Topics, Config, CbModule, MemberPid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.start_link/6</pre>
+      </div>
+
+<p>Start a kafka consumer group coordinator.</p><p><code>Client</code>: <code>ClientId</code> (or pid, but not recommended)</p><p><code>GroupId</code>: Predefined globally unique (in a kafka cluster) binary string.</p><p><code>Topics</code>: Predefined set of topic names to join the group.</p><p><code>CbModule</code>: The module which implements group coordinator callbacks</p><p><code>MemberPid</code>: The member process pid.</p><p><a href="https://hexdocs.pm/elixir/Config.html"><code>Config</code></a>: The group coordinator configs in a proplist, possible entries:</p><ul><li><p><code>partition_assignment_strategy</code> (optional, default = <code>roundrobin_v2</code>)</p><p>Possible values:</p><ul><li><p><code>roundrobin_v2</code> (topic-sticky)</p>Take all topic-offset (sorted <code>topic_partition()</code> list), assign one to each member in a roundrobin fashion. Only partitions in the subscription topic list are assiged.</li><li><p><code>callback_implemented</code></p>Call <code>CbModule:assign_partitions/2</code> to assign partitions.</li></ul></li><li><p><code>session_timeout_seconds</code> (optional, default = 10)</p>Time in seconds for the group coordinator broker to consider a member 'down' if no heartbeat or any kind of requests received from a broker in the past N seconds. A group member may also consider the coordinator broker 'down' if no heartbeat response response received in the past N seconds.</li><li><p><code>heartbeat_rate_seconds</code> (optional, default = 2)</p>Time in seconds for the member to 'ping' the group coordinator. OBS: Care should be taken when picking the number, on one hand, we do not want to flush the broker with requests if we set it too low, on the other hand, if set it too high, it may take too long for the members to realise status changes of the group such as assignment rebalacing or group coordinator switchover etc.</li><li><p><code>max_rejoin_attempts</code> (optional, default = 5)</p>Maximum number of times allowd for a member to re-join the group. The gen_server will stop if it reached the maximum number of retries. OBS: 'let it crash' may not be the optimal strategy here because the group member id is kept in the gen_server looping state and it is reused when re-joining the group.</li><li><p><code>rejoin_delay_seconds</code> (optional, default = 1)</p>Delay in seconds before re-joining the group.</li><li><p><code>offset_commit_policy</code> (optional, default = <code>commit_to_kafka_v2</code>)</p>How/where to commit offsets, possible values:<ul><li><code>commit_to_kafka_v2</code>: Group coordinator will commit the offsets to kafka using version 2 OffsetCommitRequest.</li><li><code>consumer_managed</code>: The group member (e.g. brod_group_subscriber.erl) is responsible for persisting offsets to a local or centralized storage. And the callback <code>get_committed_offsets</code> should be implemented to allow group coordinator to retrieve the commited offsets.</li></ul></li><li><p><code>offset_commit_interval_seconds</code> (optional, default = 5)</p>The time interval between two OffsetCommitRequest messages. This config is irrelevant if <code>offset_commit_policy</code> is <code>consumer_managed</code>.</li><li><p><code>offset_retention_seconds</code> (optional, default = -1)</p>How long the time is to be kept in kafka before it is deleted. The default special value -1 indicates that the __consumer_offsets topic retention policy is used. This config is irrelevant if <code>offset_commit_policy</code> is <code>consumer_managed</code>.</li><li><p><code>protocol_name</code> (optional, default = roundrobin_v2)</p>This is the protocol name used when join a group, if not given, by default <code>partition_assignment_strategy</code> is used as the protocol name. Setting a protocol name allows to interact with consumer group members designed in other programing languages. For example, 'range' is the most commonly used protocol name for JAVA client. However, brod only supports roundrobin protocol out of the box, in order to mimic 'range' protocol one will have to do it via <code>callback_implemented</code> assignment strategy</li></ul>  </section>
+</section>
+<section class="detail" id="start_offset_commit_timer/1">
+  <div class="detail-header">
+    <a href="#start_offset_commit_timer/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_offset_commit_timer(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.start_offset_commit_timer/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="stop/1">
+  <div class="detail-header">
+    <a href="#stop/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">stop(Pid)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.stop/1</pre>
+      </div>
+
+Stop group coordinator, wait for pid <code>DOWN</code> before return.  </section>
+</section>
+<section class="detail" id="sync_group/1">
+  <div class="detail-header">
+    <a href="#sync_group/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">sync_group(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.sync_group/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="terminate/2">
+  <div class="detail-header">
+    <a href="#terminate/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">terminate(Reason, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+<p>Callback implementation for <a href="http://www.erlang.org/doc/man/gen_server.html#Module:terminate-2"><code class="inline">:gen_server.terminate/2</code></a>.</p>  </section>
+</section>
+<section class="detail" id="translate_members/1">
+  <div class="detail-header">
+    <a href="#translate_members/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">translate_members(Members)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.translate_members/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="try_commit_offsets/1">
+  <div class="detail-header">
+    <a href="#try_commit_offsets/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">try_commit_offsets(State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.try_commit_offsets/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="update_topics/2">
+  <div class="detail-header">
+    <a href="#update_topics/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_topics(CoordinatorPid, Topics)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_group_coordinator.update_topics/2</pre>
+      </div>
+
+Update the list of topics the brod_group_coordinator follow which triggers a join group rebalance  </section>
+</section>
+<section class="detail" id="user_data/2">
+  <div class="detail-header">
+    <a href="#user_data/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">user_data(Module, Pid)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

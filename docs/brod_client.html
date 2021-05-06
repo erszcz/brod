@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.23.0">
+    <meta name="project" content="Brod v3.15.4">
+    <title>brod_client — Brod v3.15.4</title>
+    <link rel="stylesheet" href="dist/erlang-8a5f731dbc512bf6261b.css" />
+    <script src="dist/sidebar_items-28acb5e507.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/app-60a0c9f10e9e52eae31f.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="brod.html" class="sidebar-projectName">
+Brod      </a>
+      <strong class="sidebar-projectVersion">
+        v3.15.4
+      </strong>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        brod_client <small class="app-vsn">(Brod v3.15.4)</small>
+      </h1>
+
+
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:client/0">client()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:client_id/0">client_id()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:config/0">config()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:conn_state/0">conn_state()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:connection/0">connection()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:dead_conn/0">dead_conn()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:endpoint/0">endpoint()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:get_consumer_error/0">get_consumer_error()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:get_producer_error/0">get_producer_error()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:get_worker_error/0">get_worker_error()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:group_id/0">group_id()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:partition/0">partition()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:partition_worker_key/0">partition_worker_key()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:state/0">state()</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:topic/0">topic()</a>
+  </div>
+</div>
+  </div>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#config/3">config(Key, Config, Default)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#conn_config/1">conn_config(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#conn_config/3">conn_config(Rest, ConnCfgKeys, Acc)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#connect/2">connect(State, Endpoint)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#deregister_consumer/3">deregister_consumer(Client, Topic, Partition)</a>
+  </div>
+    <div class="summary-synopsis">De-register the consumer for a partition. The partition consumer entry is deleted from the ETS table to allow cleanup of purposefully stopped consumers and allow later restart.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#deregister_producer/3">deregister_producer(Client, Topic, Partition)</a>
+  </div>
+    <div class="summary-synopsis">De-register the producer for a partition. The partition producer entry is deleted from the ETS table to allow cleanup of purposefully stopped producers and allow later restart.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_connect/2">do_connect(Endpoint, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_get_group_coordinator/2">do_get_group_coordinator(State0, GroupId)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_get_leader_connection/3">do_get_leader_connection(State0, Topic, Partition)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_get_metadata/2">do_get_metadata(Topic, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_get_partitions_count/1">do_get_partitions_count(TopicMetadata)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_start_consumer/3">do_start_consumer(TopicName, ConsumerConfig, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#do_start_producer/3">do_start_producer(TopicName, ProducerConfig, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#ensure_binary/1">ensure_binary(ClientId)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#ensure_metadata_connection/1">ensure_metadata_connection(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#ensure_partition_workers/3">ensure_partition_workers(TopicName, State, F)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#find_conn/2">find_conn(Endpoint, Conns)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#find_consumer/3">find_consumer(Client, Topic, Partition)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#find_partition_worker/2">find_partition_worker(Client, _)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#find_producer/3">find_producer(Client, Topic, Partition)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_connection/3">get_connection(Client, Host, Port)</a>
+  </div>
+    <div class="summary-synopsis">Get connection to a kafka broker. Return already established connection towards the broker, otherwise a new one is established and cached in client state. If the old connection was dead less than a configurable N seconds ago, <code>{error, LastReason}</code> is returned.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_consumer/3">get_consumer(Client, Topic, Partition)</a>
+  </div>
+    <div class="summary-synopsis">Get consumer of the given topic-parition.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_group_coordinator/2">get_group_coordinator(Client, GroupId)</a>
+  </div>
+    <div class="summary-synopsis">Get broker endpoint and connection config for connecting a group coordinator.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_leader_connection/3">get_leader_connection(Client, Topic, Partition)</a>
+  </div>
+    <div class="summary-synopsis">Get the connection to kafka broker which is a leader for given Topic-Partition. Return already established connection towards the leader broker, Otherwise a new one is established and cached in client state. If the old connection was dead less than a configurable N seconds ago, <code>{error, LastReason}</code> is returned.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_metadata/2">get_metadata(Client, Topic)</a>
+  </div>
+    <div class="summary-synopsis">Get topic metadata, if topic is <code>undefined</code>, will fetch ALL metadata.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_metadata_connection/1">get_metadata_connection(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_metadata_safe/2">get_metadata_safe(Topic0, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_partition_worker/2">get_partition_worker(ClientPid, Key)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_partitions_count/2">get_partitions_count(Client, Topic)</a>
+  </div>
+    <div class="summary-synopsis">Get number of partitions for a given topic.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_partitions_count/3">get_partitions_count(Client, Ets, Topic)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#get_producer/3">get_producer(Client, Topic, Partition)</a>
+  </div>
+    <div class="summary-synopsis">Get producer of the given topic-partition. The producer is started if auto_start_producers is enabled in client config.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#handle_connection_down/3">handle_connection_down(State, Pid, Reason)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#is_cooled_down/2">is_cooled_down(Ts, State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#kf/2">kf(FieldName, Struct)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#lookup_partition_worker/3">lookup_partition_worker(Client, Ets, Key)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#lookup_partitions_count_cache/2">lookup_partitions_count_cache(Ets, Topic)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#mark_dead/1">mark_dead(Reason)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_connect/2">maybe_connect(State, Endpoint)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_connect/3">maybe_connect(State, Endpoint, Reason)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#maybe_start_producer/4">maybe_start_producer(Client, Topic, Partition, Error)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#register_consumer/3">register_consumer(Client, Topic, Partition)</a>
+  </div>
+    <div class="summary-synopsis">Register self() as a partition consumer. The pid is registered in an ETS table, then the callers may lookup a consumer pid from the table ane make subscribe calls to the process directly.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#register_producer/3">register_producer(Client, Topic, Partition)</a>
+  </div>
+    <div class="summary-synopsis">Register self() as a partition producer. The pid is registered in an ETS table, then the callers may lookup a producer pid from the table and make produce requests to the producer process directly.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#request_sync/2">request_sync(State, Request)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#safe_gen_call/3">safe_gen_call(Server, Call, Timeout)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#shutdown_pid/1">shutdown_pid(Pid)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_consumer/3">start_consumer(Client, TopicName, ConsumerConfig)</a>
+  </div>
+    <div class="summary-synopsis">Dynamically start a topic consumer. Returns ok if the consumer is already started.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_link/3">start_link(BootstrapEndpoints, ClientId, Config)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_producer/3">start_producer(Client, TopicName, ProducerConfig)</a>
+  </div>
+    <div class="summary-synopsis">Dynamically start a per-topic producer. Return ok if the producer is already started.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#stop/1">stop(Client)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#stop_consumer/2">stop_consumer(Client, TopicName)</a>
+  </div>
+    <div class="summary-synopsis">Stop all partition consumers of the given topic.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#stop_producer/2">stop_producer(Client, TopicName)</a>
+  </div>
+    <div class="summary-synopsis">Stop all partition producers of the given topic.</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#timeout/1">timeout(State)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#update_partitions_count_cache/2">update_partitions_count_cache(Ets, Rest)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#validate_topic_existence/3">validate_topic_existence(Topic, State, IsRetry)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#with_ok/2">with_ok(Result, Continue)</a>
+  </div>
+</div>
+  </div>
+        </section>
+
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Types          </h1>
+          <div class="types-list">
+<section class="detail" id="t:client/0">
+  <div class="detail-header">
+    <a href="#t:client/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">client()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.client/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:client_id/0">
+  <div class="detail-header">
+    <a href="#t:client_id/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">client_id()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.client_id/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:config/0">
+  <div class="detail-header">
+    <a href="#t:config/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">config()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.config/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:conn_state/0">
+  <div class="detail-header">
+    <a href="#t:conn_state/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">conn_state()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.conn_state/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:connection/0">
+  <div class="detail-header">
+    <a href="#t:connection/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">connection()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.connection/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:dead_conn/0">
+  <div class="detail-header">
+    <a href="#t:dead_conn/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">dead_conn()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.dead_conn/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:endpoint/0">
+  <div class="detail-header">
+    <a href="#t:endpoint/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">endpoint()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.endpoint/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:get_consumer_error/0">
+  <div class="detail-header">
+    <a href="#t:get_consumer_error/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">get_consumer_error()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.get_consumer_error/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:get_producer_error/0">
+  <div class="detail-header">
+    <a href="#t:get_producer_error/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">get_producer_error()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.get_producer_error/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:get_worker_error/0">
+  <div class="detail-header">
+    <a href="#t:get_worker_error/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">get_worker_error()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.get_worker_error/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:group_id/0">
+  <div class="detail-header">
+    <a href="#t:group_id/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">group_id()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.group_id/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:partition/0">
+  <div class="detail-header">
+    <a href="#t:partition/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">partition()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.partition/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:partition_worker_key/0">
+  <div class="detail-header">
+    <a href="#t:partition_worker_key/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">partition_worker_key()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.partition_worker_key/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:state/0">
+  <div class="detail-header">
+    <a href="#t:state/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">state()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.state/0</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="t:topic/0">
+  <div class="detail-header">
+    <a href="#t:topic/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <h1 class="signature">topic()</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>t:brod_client.topic/0</pre>
+      </div>
+
+  </section>
+</section>
+          </div>
+        </section>
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="config/3">
+  <div class="detail-header">
+    <a href="#config/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">config(Key, Config, Default)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="conn_config/1">
+  <div class="detail-header">
+    <a href="#conn_config/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">conn_config(State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="conn_config/3">
+  <div class="detail-header">
+    <a href="#conn_config/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">conn_config(Rest, ConnCfgKeys, Acc)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="connect/2">
+  <div class="detail-header">
+    <a href="#connect/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">connect(State, Endpoint)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.connect/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="deregister_consumer/3">
+  <div class="detail-header">
+    <a href="#deregister_consumer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">deregister_consumer(Client, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.deregister_consumer/3</pre>
+      </div>
+
+De-register the consumer for a partition. The partition consumer entry is deleted from the ETS table to allow cleanup of purposefully stopped consumers and allow later restart.  </section>
+</section>
+<section class="detail" id="deregister_producer/3">
+  <div class="detail-header">
+    <a href="#deregister_producer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">deregister_producer(Client, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.deregister_producer/3</pre>
+      </div>
+
+De-register the producer for a partition. The partition producer entry is deleted from the ETS table to allow cleanup of purposefully stopped producers and allow later restart.  </section>
+</section>
+<section class="detail" id="do_connect/2">
+  <div class="detail-header">
+    <a href="#do_connect/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_connect(Endpoint, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="do_get_group_coordinator/2">
+  <div class="detail-header">
+    <a href="#do_get_group_coordinator/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_get_group_coordinator(State0, GroupId)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.do_get_group_coordinator/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="do_get_leader_connection/3">
+  <div class="detail-header">
+    <a href="#do_get_leader_connection/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_get_leader_connection(State0, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="do_get_metadata/2">
+  <div class="detail-header">
+    <a href="#do_get_metadata/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_get_metadata(Topic, State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.do_get_metadata/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="do_get_partitions_count/1">
+  <div class="detail-header">
+    <a href="#do_get_partitions_count/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_get_partitions_count(TopicMetadata)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.do_get_partitions_count/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="do_start_consumer/3">
+  <div class="detail-header">
+    <a href="#do_start_consumer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_start_consumer(TopicName, ConsumerConfig, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="do_start_producer/3">
+  <div class="detail-header">
+    <a href="#do_start_producer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">do_start_producer(TopicName, ProducerConfig, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="ensure_binary/1">
+  <div class="detail-header">
+    <a href="#ensure_binary/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">ensure_binary(ClientId)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="ensure_metadata_connection/1">
+  <div class="detail-header">
+    <a href="#ensure_metadata_connection/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">ensure_metadata_connection(State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="ensure_partition_workers/3">
+  <div class="detail-header">
+    <a href="#ensure_partition_workers/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">ensure_partition_workers(TopicName, State, F)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="find_conn/2">
+  <div class="detail-header">
+    <a href="#find_conn/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">find_conn(Endpoint, Conns)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.find_conn/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="find_consumer/3">
+  <div class="detail-header">
+    <a href="#find_consumer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">find_consumer(Client, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.find_consumer/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="find_partition_worker/2">
+  <div class="detail-header">
+    <a href="#find_partition_worker/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">find_partition_worker(Client, _)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.find_partition_worker/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="find_producer/3">
+  <div class="detail-header">
+    <a href="#find_producer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">find_producer(Client, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.find_producer/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="get_connection/3">
+  <div class="detail-header">
+    <a href="#get_connection/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_connection(Client, Host, Port)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_connection/3</pre>
+      </div>
+
+Get connection to a kafka broker. Return already established connection towards the broker, otherwise a new one is established and cached in client state. If the old connection was dead less than a configurable N seconds ago, <code>{error, LastReason}</code> is returned.  </section>
+</section>
+<section class="detail" id="get_consumer/3">
+  <div class="detail-header">
+    <a href="#get_consumer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_consumer(Client, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_consumer/3</pre>
+      </div>
+
+Get consumer of the given topic-parition.  </section>
+</section>
+<section class="detail" id="get_group_coordinator/2">
+  <div class="detail-header">
+    <a href="#get_group_coordinator/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_group_coordinator(Client, GroupId)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_group_coordinator/2</pre>
+      </div>
+
+Get broker endpoint and connection config for connecting a group coordinator.  </section>
+</section>
+<section class="detail" id="get_leader_connection/3">
+  <div class="detail-header">
+    <a href="#get_leader_connection/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_leader_connection(Client, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_leader_connection/3</pre>
+      </div>
+
+Get the connection to kafka broker which is a leader for given Topic-Partition. Return already established connection towards the leader broker, Otherwise a new one is established and cached in client state. If the old connection was dead less than a configurable N seconds ago, <code>{error, LastReason}</code> is returned.  </section>
+</section>
+<section class="detail" id="get_metadata/2">
+  <div class="detail-header">
+    <a href="#get_metadata/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_metadata(Client, Topic)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_metadata/2</pre>
+      </div>
+
+Get topic metadata, if topic is <code>undefined</code>, will fetch ALL metadata.  </section>
+</section>
+<section class="detail" id="get_metadata_connection/1">
+  <div class="detail-header">
+    <a href="#get_metadata_connection/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_metadata_connection(State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="get_metadata_safe/2">
+  <div class="detail-header">
+    <a href="#get_metadata_safe/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_metadata_safe(Topic0, State)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_metadata_safe/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="get_partition_worker/2">
+  <div class="detail-header">
+    <a href="#get_partition_worker/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_partition_worker(ClientPid, Key)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_partition_worker/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="get_partitions_count/2">
+  <div class="detail-header">
+    <a href="#get_partitions_count/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_partitions_count(Client, Topic)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_partitions_count/2</pre>
+      </div>
+
+Get number of partitions for a given topic.  </section>
+</section>
+<section class="detail" id="get_partitions_count/3">
+  <div class="detail-header">
+    <a href="#get_partitions_count/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_partitions_count(Client, Ets, Topic)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_partitions_count/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="get_producer/3">
+  <div class="detail-header">
+    <a href="#get_producer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">get_producer(Client, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.get_producer/3</pre>
+      </div>
+
+Get producer of the given topic-partition. The producer is started if auto_start_producers is enabled in client config.  </section>
+</section>
+<section class="detail" id="handle_connection_down/3">
+  <div class="detail-header">
+    <a href="#handle_connection_down/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">handle_connection_down(State, Pid, Reason)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.handle_connection_down/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="is_cooled_down/2">
+  <div class="detail-header">
+    <a href="#is_cooled_down/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">is_cooled_down(Ts, State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="kf/2">
+  <div class="detail-header">
+    <a href="#kf/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">kf(FieldName, Struct)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.kf/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="lookup_partition_worker/3">
+  <div class="detail-header">
+    <a href="#lookup_partition_worker/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">lookup_partition_worker(Client, Ets, Key)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.lookup_partition_worker/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="lookup_partitions_count_cache/2">
+  <div class="detail-header">
+    <a href="#lookup_partitions_count_cache/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">lookup_partitions_count_cache(Ets, Topic)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.lookup_partitions_count_cache/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="mark_dead/1">
+  <div class="detail-header">
+    <a href="#mark_dead/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">mark_dead(Reason)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="maybe_connect/2">
+  <div class="detail-header">
+    <a href="#maybe_connect/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_connect(State, Endpoint)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.maybe_connect/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="maybe_connect/3">
+  <div class="detail-header">
+    <a href="#maybe_connect/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_connect(State, Endpoint, Reason)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.maybe_connect/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="maybe_start_producer/4">
+  <div class="detail-header">
+    <a href="#maybe_start_producer/4" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">maybe_start_producer(Client, Topic, Partition, Error)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.maybe_start_producer/4</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="register_consumer/3">
+  <div class="detail-header">
+    <a href="#register_consumer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">register_consumer(Client, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.register_consumer/3</pre>
+      </div>
+
+Register self() as a partition consumer. The pid is registered in an ETS table, then the callers may lookup a consumer pid from the table ane make subscribe calls to the process directly.  </section>
+</section>
+<section class="detail" id="register_producer/3">
+  <div class="detail-header">
+    <a href="#register_producer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">register_producer(Client, Topic, Partition)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.register_producer/3</pre>
+      </div>
+
+Register self() as a partition producer. The pid is registered in an ETS table, then the callers may lookup a producer pid from the table and make produce requests to the producer process directly.  </section>
+</section>
+<section class="detail" id="request_sync/2">
+  <div class="detail-header">
+    <a href="#request_sync/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">request_sync(State, Request)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.request_sync/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="safe_gen_call/3">
+  <div class="detail-header">
+    <a href="#safe_gen_call/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">safe_gen_call(Server, Call, Timeout)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.safe_gen_call/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="shutdown_pid/1">
+  <div class="detail-header">
+    <a href="#shutdown_pid/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">shutdown_pid(Pid)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="start_consumer/3">
+  <div class="detail-header">
+    <a href="#start_consumer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_consumer(Client, TopicName, ConsumerConfig)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.start_consumer/3</pre>
+      </div>
+
+Dynamically start a topic consumer. Returns ok if the consumer is already started.  </section>
+</section>
+<section class="detail" id="start_link/3">
+  <div class="detail-header">
+    <a href="#start_link/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_link(BootstrapEndpoints, ClientId, Config)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.start_link/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="start_producer/3">
+  <div class="detail-header">
+    <a href="#start_producer/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_producer(Client, TopicName, ProducerConfig)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.start_producer/3</pre>
+      </div>
+
+Dynamically start a per-topic producer. Return ok if the producer is already started.  </section>
+</section>
+<section class="detail" id="stop/1">
+  <div class="detail-header">
+    <a href="#stop/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">stop(Client)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.stop/1</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="stop_consumer/2">
+  <div class="detail-header">
+    <a href="#stop_consumer/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">stop_consumer(Client, TopicName)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.stop_consumer/2</pre>
+      </div>
+
+Stop all partition consumers of the given topic.  </section>
+</section>
+<section class="detail" id="stop_producer/2">
+  <div class="detail-header">
+    <a href="#stop_producer/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">stop_producer(Client, TopicName)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.stop_producer/2</pre>
+      </div>
+
+Stop all partition producers of the given topic.  </section>
+</section>
+<section class="detail" id="timeout/1">
+  <div class="detail-header">
+    <a href="#timeout/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">timeout(State)</h1>
+  </div>
+
+  <section class="docstring">
+
+  </section>
+</section>
+<section class="detail" id="update_partitions_count_cache/2">
+  <div class="detail-header">
+    <a href="#update_partitions_count_cache/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">update_partitions_count_cache(Ets, Rest)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.update_partitions_count_cache/2</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="validate_topic_existence/3">
+  <div class="detail-header">
+    <a href="#validate_topic_existence/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">validate_topic_existence(Topic, State, IsRetry)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.validate_topic_existence/3</pre>
+      </div>
+
+  </section>
+</section>
+<section class="detail" id="with_ok/2">
+  <div class="detail-header">
+    <a href="#with_ok/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">with_ok(Result, Continue)</h1>
+  </div>
+
+  <section class="docstring">
+      <h2>Specs</h2>
+      <div class="specs">
+          <pre>brod_client.with_ok/2</pre>
+      </div>
+
+  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.23.0) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+            <a href="api-reference.html" title="API reference" class="line footer-button">API Reference</a>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>
